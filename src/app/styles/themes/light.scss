@@ -1,0 +1,22 @@
+:root,
+.app_light_theme {
+  --bg-color: #ececf3;
+  --inverted-bg-color: #13130c;
+  --primary-color: #1e3655;
+  --secondary-color: #41538f;
+  --inverted-primary-color: #decd96;
+  --inverted-secondary-color: #e9d7c0;
+
+  // skeleton
+  --skeleton-color: #fff;
+  --skeleton-shadow: rgb(0 0 0 / 20%);
+
+  // Code
+  --code-bg: #fff;
+
+  // card
+  --card-bg: #d6d6dd;
+
+  // listbox
+  --listbox-bg: #d6d6dd;
+}

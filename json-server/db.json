@@ -1,0 +1,138 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "123",
+      "avatar": "https://sun27-1.userapi.com/s/v1/ig2/wi5o_w0R9_NC5nNp_7LxI8cZlUtm64kQ4PL5cpXrdw-7YFjF2BKnjiNV16rJiGBnvEId9NiNgieePJPOVzXMARIT.jpg?size=144x144&quality=95&crop=330,278,144,144&ava=1"
+    },
+    {
+      "id": "2",
+      "username": "user",
+      "password": "123",
+      "avatar": "https://sun27-1.userapi.com/s/v1/ig2/wi5o_w0R9_NC5nNp_7LxI8cZlUtm64kQ4PL5cpXrdw-7YFjF2BKnjiNV16rJiGBnvEId9NiNgieePJPOVzXMARIT.jpg?size=144x144&quality=95&crop=330,278,144,144&ava=1"
+    }
+  ],
+  "todos": [
+    {
+      "id": "1",
+      "title": "Тестовое задание",
+      "isParent": false,
+      "userId": "1",
+      "state": "active",
+      "parentId": null
+    },
+    {
+      "id": "2",
+      "title": "What needs to be done?",
+      "isParent": true,
+      "userId": "1",
+      "state": "active",
+      "parentId": null
+    },
+    {
+      "id" :"3",
+      "title": "Почистить картошку",
+      "isParent": false,
+      "userId": "1",
+      "state" : "active",
+      "parentId" : "2"
+    },
+    {
+      "id": "4",
+      "title": "Порезать картошку",
+      "isParent" : false,
+      "userId" : "1",
+      "state" : "active",
+      "parentId" : "2"
+    },
+    {
+      "id": "5",
+      "title": "Почистить лук",
+      "isParent": false,
+      "userId": "1",
+      "state": "active",
+      "parentId": "2"
+    },
+    {
+      "id": "6",
+      "title": "Порезать лук",
+      "isParent": false,
+      "userId": "1",
+      "state": "active",
+      "parentId": 2
+    },
+    {
+      "id": "7",
+      "title": "Пожарить картошку",
+      "isParent": true,
+      "userId": "1",
+      "state": "active",
+      "parentId": "2"
+    },
+    {
+      "id": "8",
+      "title": "Пожарить картошку",
+      "isParent": false,
+      "userId":"1",
+      "state":"active",
+      "parentId":"7"
+    },
+    {
+      "id": "9",
+      "title": "Добавить лук",
+      "isParent": false,
+      "userId": "1",
+      "state": "active",
+      "parentId": "7"
+    },
+    {
+      "id": "10",
+      "title":"Пожарить до готовности",
+      "isParent": false,
+      "userId": "1",
+      "state": "active",
+      "parentId": "7"
+    },
+    {
+      "id": "11",
+      "title": "Получить работу в Mindxbox",
+      "isParent": false,
+      "userId":"2",
+      "state": "completed",
+      "parentId": null
+    },
+    {
+      "id":"12",
+      "title": "Выполнить тестовое задание",
+      "isParent": true,
+      "userId":"1",
+      "state": "completed",
+      "parentId": null
+    },
+    {
+      "id":"13",
+      "title": "Реализовать логику",
+      "isParent": false,
+      "userId":"1",
+      "state": "completed",
+      "parentId": "12"
+    },
+    {
+      "id":"14",
+      "title": "Покрыть код тестами",
+      "isParent": false,
+      "userId":"1",
+      "state": "completed",
+      "parentId": "12"
+    },
+    {
+      "id":"15",
+      "title": "Задеплоить на Netlify + Glitch",
+      "isParent": false,
+      "userId":"1",
+      "state": "completed",
+      "parentId": "12"
+    }
+  ]
+}

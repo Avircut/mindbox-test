@@ -1,0 +1,28 @@
+.navbar {
+  display: flex;
+  width: 100%;
+  height: var(--navbar-height);
+  background: var(--inverted-bg-color);
+  align-items: center;
+  padding: 20px;
+}
+
+.mainLink {
+  margin-right: 15px;
+}
+
+.links,
+.dropdown {
+  margin-left: auto;
+}
+
+.logoWrapper {
+  width: calc(var(--sidebar-width) - 20px);
+  display: flex;
+}
+
+.logo {
+  max-width: 150px;
+  object-fit: contain;
+  margin-right: 40px;
+}
