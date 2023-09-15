@@ -21,9 +21,6 @@ export const Navbar = memo(() => {
   if (authData) {
     return (
       <HStack role="heading" className={classNames(cls.navbar)}>
-        <div className={cls.logoWrapper}>
-          <Icon Svg={LogoIcon} className={cls.logo} />
-        </div>
         <HStack grow justify="end">
           <Dropdown
             direction="bottomLeft"
