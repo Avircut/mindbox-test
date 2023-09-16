@@ -8,6 +8,7 @@ export const validateAuth = (authForm?: AuthPageSchema) => {
 
   const errors: ValidateAuthError[] = [];
 
+  if (!login && !password) return [ValidateAuthError.NO_DATA];
   if (!login) {
     errors.push(ValidateAuthError.NO_LOGIN);
   }

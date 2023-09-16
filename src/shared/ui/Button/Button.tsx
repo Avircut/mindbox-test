@@ -7,11 +7,12 @@ import cls from './Button.module.scss';
 export enum ButtonTheme {
   CLEAR = 'clear',
   CLEAR_INVERTED = 'clear_inverted',
+  CLEAR_PADDING = 'clear_padding',
   OUTLINE = 'outline',
   OUTLINE_RED = 'outline_red',
   OUTLINE_GREEN = 'outline_green',
   BACKGROUND = 'background',
-  BACKGROUND_INVERTED = 'background_inverted'
+  BACKGROUND_INVERTED = 'background_inverted',
 }
 export enum ButtonSize {
   M = 'size_m',

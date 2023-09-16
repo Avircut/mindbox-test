@@ -8,12 +8,14 @@ type HTMLInputProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
   'value' | 'onChange' | 'readOnly'
 >;
+export type InputTheme = 'default' | 'clear';
 
 export interface InputProps extends HTMLInputProps {
   className?: string;
   value?: string | number;
   onChange?: (value: string) => void;
   readonly?: boolean;
+  theme?: InputTheme;
 }
 
 export const Input = memo((props: InputProps) => {
@@ -24,6 +26,7 @@ export const Input = memo((props: InputProps) => {
     type = 'text',
     placeholder,
     readonly = false,
+    theme = 'default',
     ...otherProps
   } = props;
 
@@ -38,7 +41,7 @@ export const Input = memo((props: InputProps) => {
       placeholder={placeholder}
       type={type}
       onChange={onChangeHandler}
-      className={classNames(cls.input, mods, [className])}
+      className={classNames(cls.input, mods, [cls[theme], className])}
       value={value}
       readOnly={readonly}
       {...otherProps}

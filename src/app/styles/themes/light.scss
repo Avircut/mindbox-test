@@ -1,18 +1,16 @@
 :root,
 .app_light_theme {
-  --bg-color: #ececf3;
-  --inverted-bg-color: #13130c;
-  --primary-color: #1e3655;
-  --secondary-color: #41538f;
-  --inverted-primary-color: #decd96;
+  --bg-color: #fdf9e9;
+  --inverted-bg-color: #fff;
+  --primary-color: #323233;
+  --secondary-color: rgb(98 99 105);
+  --inverted-primary-color: #fff;
   --inverted-secondary-color: #e9d7c0;
+  --border-color: #e4e4e4;
 
   // skeleton
   --skeleton-color: #fff;
   --skeleton-shadow: rgb(0 0 0 / 20%);
-
-  // Code
-  --code-bg: #fff;
 
   // card
   --card-bg: #d6d6dd;

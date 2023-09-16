@@ -20,7 +20,7 @@ export const AuthPageSlice = createSlice({
   },
   extraReducers: (builder) => builder.addCase(login.pending, (state) => {
     state.errors = undefined;
-    state.isLoading = false;
+    state.isLoading = true;
   })
     .addCase(login.fulfilled, (state) => {
       state.isLoading = false;

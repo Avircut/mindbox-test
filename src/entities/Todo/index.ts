@@ -1,2 +1,9 @@
-export { TodoItem } from './ui/Todo/TodoItem';
+export {
+  useAddNewTodo,
+  useRemoveTodo,
+  useUpdateTodo,
+  useFetchUserTodos,
+} from './model/services/TodoService';
+
+export { TodoItem } from './ui/TodoItem/TodoItem';
 export { Todo } from './model/types/TodoSchema';

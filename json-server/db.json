@@ -17,122 +17,158 @@
     {
       "id": "1",
       "title": "Тестовое задание",
-      "isParent": false,
-      "userId": "1",
-      "state": "active",
-      "parentId": null
+      "usersId": "1",
+      "isCompleted": false
     },
     {
       "id": "2",
       "title": "What needs to be done?",
-      "isParent": true,
       "userId": "1",
-      "state": "active",
-      "parentId": null
+      "isCompleted": false,
+      "todoId": "1",
+      "todos": [
+        {
+          "id": "3",
+          "title": "Почистить картошку",
+          "userId": "1",
+          "isCompleted": false,
+          "todoId": "2"
+        },
+        {
+          "id": "4",
+          "title": "Порезать картошку",
+          "userId": "1",
+          "isCompleted": false,
+          "todoId": "2"
+        },
+        {
+          "id": "6",
+          "title": "Порезать лук",
+          "userId": "1",
+          "isCompleted": false,
+          "todoId": "2"
+        }
+      ]
     },
     {
-      "id" :"3",
+      "id": "3",
       "title": "Почистить картошку",
-      "isParent": false,
       "userId": "1",
-      "state" : "active",
-      "parentId" : "2"
+      "isCompleted": false,
+      "todoId": "2"
     },
     {
       "id": "4",
       "title": "Порезать картошку",
-      "isParent" : false,
-      "userId" : "1",
-      "state" : "active",
-      "parentId" : "2"
-    },
-    {
-      "id": "5",
-      "title": "Почистить лук",
-      "isParent": false,
       "userId": "1",
-      "state": "active",
-      "parentId": "2"
+      "isCompleted": false,
+      "todoId": "2"
     },
     {
       "id": "6",
       "title": "Порезать лук",
-      "isParent": false,
       "userId": "1",
-      "state": "active",
-      "parentId": 2
+      "isCompleted": false,
+      "todoId": "2"
     },
     {
       "id": "7",
       "title": "Пожарить картошку",
-      "isParent": true,
       "userId": "1",
-      "state": "active",
-      "parentId": "2"
+      "isCompleted": false,
+      "todos": [
+        {
+          "id": "8",
+          "title": "Пожарить картошку",
+          "userId": "1",
+          "isCompleted": false,
+          "todoId": "7"
+        },
+        {
+          "id": "9",
+          "title": "Добавить лук",
+          "userId": "1",
+          "isCompleted": false,
+          "todoId": "7"
+        },
+        {
+          "id": "10",
+          "title": "Пожарить до готовности",
+          "userId": "1",
+          "todoId": "7",
+          "isCompleted": false
+        }
+      ]
     },
     {
       "id": "8",
       "title": "Пожарить картошку",
-      "isParent": false,
-      "userId":"1",
-      "state":"active",
-      "parentId":"7"
+      "userId": "1",
+      "isCompleted": false,
+      "todoId": "7"
     },
     {
       "id": "9",
       "title": "Добавить лук",
-      "isParent": false,
       "userId": "1",
-      "state": "active",
-      "parentId": "7"
-    },
-    {
-      "id": "10",
-      "title":"Пожарить до готовности",
-      "isParent": false,
-      "userId": "1",
-      "state": "active",
-      "parentId": "7"
+      "isCompleted": false,
+      "todoId": "7"
     },
     {
       "id": "11",
       "title": "Получить работу в Mindxbox",
-      "isParent": false,
-      "userId":"2",
-      "state": "completed",
-      "parentId": null
+      "userId": "2",
+      "isCompleted": true
     },
     {
-      "id":"12",
+      "id": "12",
       "title": "Выполнить тестовое задание",
-      "isParent": true,
-      "userId":"1",
-      "state": "completed",
-      "parentId": null
+      "userId": "1",
+      "isCompleted": true,
+      "todos": [
+        {
+          "id": "13",
+          "title": "Реализовать логику",
+          "userId": "1",
+          "isCompleted": true,
+          "todoId": "12"
+        },
+        {
+          "id": "14",
+          "title": "Покрыть код тестами",
+          "userId": "1",
+          "isCompleted": true,
+          "todoId": "12"
+        },
+        {
+          "id": "15",
+          "title": "Задеплоить на Netlify + Glitch",
+          "userId": "1",
+          "isCompleted": true,
+          "todoId": "12"
+        }
+      ]
     },
     {
-      "id":"13",
+      "id": "13",
       "title": "Реализовать логику",
-      "isParent": false,
-      "userId":"1",
-      "state": "completed",
-      "parentId": "12"
+      "userId": "1",
+      "isCompleted": true,
+      "todoId": "12"
     },
     {
-      "id":"14",
+      "id": "14",
       "title": "Покрыть код тестами",
-      "isParent": false,
-      "userId":"1",
-      "state": "completed",
-      "parentId": "12"
+      "userId": "1",
+      "isCompleted": true,
+      "todoId": "12"
     },
     {
-      "id":"15",
+      "id": "15",
       "title": "Задеплоить на Netlify + Glitch",
-      "isParent": false,
-      "userId":"1",
-      "state": "completed",
-      "parentId": "12"
+      "userId": "1",
+      "isCompleted": true,
+      "todoId": "12"
     }
   ]
 }

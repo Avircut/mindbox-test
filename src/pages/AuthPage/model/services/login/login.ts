@@ -2,6 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
 import { User, userActions } from 'entities/User';
 import { USER_LOCALSTORAGE_KEY } from 'shared/const/localStorage';
+import axios, { AxiosError } from 'axios';
 import { validateAuth } from '../validate/validateAuth';
 import { ValidateAuthError } from '../../types/AuthPageSchema';
 
@@ -35,7 +36,10 @@ export const login = createAsyncThunk<
       dispatch(userActions.setAuthData(response.data));
       return response.data;
     } catch (e) {
-      console.log(e);
+      const errors = e as Error | AxiosError;
+      if (axios.isAxiosError(errors)) {
+        if (errors.response?.status === 403) return rejectWithValue([ValidateAuthError.INCORRECT_DATA]);
+      }
       return rejectWithValue([ValidateAuthError.SERVER_ERROR]);
     }
   },

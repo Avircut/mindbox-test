@@ -1,3 +1,47 @@
-.Icon {
-  fill: var(--primary-color);
+.stroke_red {
+  path {
+    stroke: var(--red-light);
+  }
+}
+
+.stroke_green {
+  path {
+    stroke: var(--green-light);
+  }
+}
+
+.stroke_primary {
+  path {
+    stroke: var(--primary-color);
+  }
+}
+
+.stroke_secondary {
+  path {
+    stroke: var(--secondary-color);
+  }
+}
+
+.fill_red {
+  path {
+    fill: var(--red-light);
+  }
+}
+
+.fill_green {
+  path {
+    fill: var(--green-light);
+  }
+}
+
+.fill_primary {
+  path {
+    fill: var(--primary-color);
+  }
+}
+
+.fill_secondary {
+  path {
+    fill: var(--secondary-color);
+  }
 }

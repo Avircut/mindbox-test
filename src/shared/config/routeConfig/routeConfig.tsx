@@ -8,22 +8,27 @@ export type AppRoutesProps = RouteProps & {
 }
 
 export enum AppRoutes {
-  MAIN = 'main',
+  TODOS = 'todos',
+  TODO_DETAIL = 'todo_detail',
   AUTH = 'auth',
   NOT_FOUND = 'not_found',
 }
 
 export const RoutePath: Record<AppRoutes, string> = {
-  [AppRoutes.MAIN]: '/',
+  [AppRoutes.TODOS]: '/',
+  [AppRoutes.TODO_DETAIL]: '/todos/', // + id
   [AppRoutes.AUTH]: '/auth',
   [AppRoutes.NOT_FOUND]: '*',
 };
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
-  [AppRoutes.MAIN]: {
-    path: RoutePath.main,
+  [AppRoutes.TODOS]: {
+    path: RoutePath.todos,
     element: <MainPage />,
     restriction: 'auth',
+  },
+  [AppRoutes.TODO_DETAIL]: {
+    path: `${RoutePath.todo_detail}:id`,
   },
   [AppRoutes.AUTH]: {
     path: RoutePath.auth,
