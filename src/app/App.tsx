@@ -18,7 +18,7 @@ const App = () => {
   return (
     <Suspense fallback="">
       <div className={classNames('app')}>
-        {/* <Navbar /> */}
+        <Navbar />
         <div className="content-page">
           {inited && <AppRouter />}
         </div>

@@ -4,8 +4,6 @@ import { useTranslation } from 'react-i18next';
 import { getUserAuthData, userActions } from 'entities/User';
 import { useAppSelector } from 'shared/lib/hooks/useAppSelector/useAppSelector';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Icon } from 'shared/ui/Icon/Icon';
-import LogoIcon from 'shared/assets/icons/logo.svg';
 import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { HStack } from 'shared/ui/Stack';

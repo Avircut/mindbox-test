@@ -17,102 +17,31 @@
     {
       "id": "1",
       "title": "Тестовое задание",
-      "usersId": "1",
-      "isCompleted": false
-    },
-    {
-      "id": "2",
-      "title": "What needs to be done?",
       "userId": "1",
       "isCompleted": false,
-      "todoId": "1",
-      "todos": [
-        {
-          "id": "3",
-          "title": "Почистить картошку",
-          "userId": "1",
-          "isCompleted": false,
-          "todoId": "2"
-        },
-        {
-          "id": "4",
-          "title": "Порезать картошку",
-          "userId": "1",
-          "isCompleted": false,
-          "todoId": "2"
-        },
-        {
-          "id": "6",
-          "title": "Порезать лук",
-          "userId": "1",
-          "isCompleted": false,
-          "todoId": "2"
-        }
-      ]
-    },
-    {
-      "id": "3",
-      "title": "Почистить картошку",
-      "userId": "1",
-      "isCompleted": false,
-      "todoId": "2"
-    },
-    {
-      "id": "4",
-      "title": "Порезать картошку",
-      "userId": "1",
-      "isCompleted": false,
-      "todoId": "2"
-    },
-    {
-      "id": "6",
-      "title": "Порезать лук",
-      "userId": "1",
-      "isCompleted": false,
-      "todoId": "2"
+      "todos": []
     },
     {
       "id": "7",
       "title": "Пожарить картошку",
       "userId": "1",
-      "isCompleted": false,
-      "todos": [
-        {
-          "id": "8",
-          "title": "Пожарить картошку",
-          "userId": "1",
-          "isCompleted": false,
-          "todoId": "7"
-        },
-        {
-          "id": "9",
-          "title": "Добавить лук",
-          "userId": "1",
-          "isCompleted": false,
-          "todoId": "7"
-        },
-        {
-          "id": "10",
-          "title": "Пожарить до готовности",
-          "userId": "1",
-          "todoId": "7",
-          "isCompleted": false
-        }
-      ]
+      "isCompleted": true
     },
     {
       "id": "8",
       "title": "Пожарить картошку",
       "userId": "1",
-      "isCompleted": false,
-      "todoId": "7"
+      "isCompleted": true,
+      "todoId": "7",
+      "todos": []
     },
     {
       "id": "9",
       "title": "Добавить лук",
       "userId": "1",
-      "isCompleted": false,
-      "todoId": "7"
+      "isCompleted": true,
+      "todoId": "7",
+      "todos": []
     },
     {
       "id": "11",
@@ -124,30 +53,7 @@
       "id": "12",
       "title": "Выполнить тестовое задание",
       "userId": "1",
-      "isCompleted": true,
-      "todos": [
-        {
-          "id": "13",
-          "title": "Реализовать логику",
-          "userId": "1",
-          "isCompleted": true,
-          "todoId": "12"
-        },
-        {
-          "id": "14",
-          "title": "Покрыть код тестами",
-          "userId": "1",
-          "isCompleted": true,
-          "todoId": "12"
-        },
-        {
-          "id": "15",
-          "title": "Задеплоить на Netlify + Glitch",
-          "userId": "1",
-          "isCompleted": true,
-          "todoId": "12"
-        }
-      ]
+      "isCompleted": true
     },
     {
       "id": "13",
@@ -164,11 +70,11 @@
       "todoId": "12"
     },
     {
-      "id": "15",
-      "title": "Задеплоить на Netlify + Glitch",
       "userId": "1",
-      "isCompleted": true,
-      "todoId": "12"
+      "isCompleted": false,
+      "title": "Test",
+      "id": "t93DHQ6",
+      "todos": []
     }
   ]
 }

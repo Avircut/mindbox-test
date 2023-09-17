@@ -47,5 +47,14 @@
   "errors.no login": "Пожалуйста, введите логин",
   "errors.no password": "Пожалуйста, введите пароль",
   "errors.server error": "Что-то пошло не так. Попробуйте позже",
-  "todos": "todos"
+  "todos": "todos",
+  "Todo Title": "Заголовок",
+  "Add Todo Btn": "Добавить",
+  "New todo": "Новое дело",
+  "Choose Parent": "Выберите родительскую задачу",
+  "Parent todo": "Родительская задача",
+  "No todos yet": "Еще нет дел",
+  "Parent": "Задача",
+  "Adding new todo error": "Произошла ошибка при добавлении задачи",
+  "Please enter title": "Пожалуйста, введите заголовок"
 }

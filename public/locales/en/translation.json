@@ -47,5 +47,14 @@
   "errors.no login": "Please fill the login field",
   "errors.no password": "Please fill the password field",
   "errors.server error": "Something went wrong. Try again later",
-  "todos": "todos"
+  "todos": "todos",
+  "Todo Title": "Title",
+  "Add Todo Btn": "Add",
+  "New todo": "New todo",
+  "Choose Parent": "Choose Parent",
+  "Parent todo": "Parent todo",
+  "No todos yet": "No todos yet",
+  "Parent": "Todo",
+  "Adding new todo error": "Error occured while adding todo",
+  "Please enter title": "Please enter title"
 }

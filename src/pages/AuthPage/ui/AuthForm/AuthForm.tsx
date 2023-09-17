@@ -91,7 +91,6 @@ const AuthForm = memo((props: AuthFormProps) => {
       <VStack align="end" gap="8">
         <Button
           className={cls.submitBtn}
-          theme={ButtonTheme.BACKGROUND_INVERTED}
           onClick={onClick}
         >
           {t('Log in')}

@@ -4,4 +4,5 @@ export interface Todo {
   title: string;
   todos?: Todo[];
   isCompleted: boolean;
+  todoId?: string;
 }

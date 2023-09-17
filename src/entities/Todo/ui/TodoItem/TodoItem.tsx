@@ -6,12 +6,10 @@ import { HStack, VStack } from 'shared/ui/Stack';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Icon } from 'shared/ui/Icon/Icon';
 import doneCheckIcon from 'shared/assets/icons/done-20-20.svg';
-import { Text } from 'shared/ui/Text/Text';
-import editIcon from 'shared/assets/icons/edit.svg';
 import deleteIcon from 'shared/assets/icons/delete.svg';
 import { Input } from 'shared/ui/Input/Input';
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
-import { useGetTodo, useRemoveTodo, useUpdateTodo } from '../../model/services/TodoService';
+import { useRemoveTodo, useUpdateTodo } from '../../model/services/TodoService';
 import cls from './TodoItem.module.scss';
 import { Todo } from '../../model/types/TodoSchema';
 import { TodoList } from '../TodoList/TodoList';
@@ -24,8 +22,6 @@ interface TodoProps {
 export const TodoItem = memo((props: TodoProps) => {
   const { className, todo } = props;
   const [title, setTitle] = useState(todo.title);
-  // To make it more smooth Redux docs tells to make this to make optimistic update works... I don't like that approach, but that says official docs =(
-  // const { data: todo, isLoading } = useGetTodo(id);
   const mods: Mods = {
     [cls.completed]: todo.isCompleted,
   };

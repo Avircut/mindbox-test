@@ -1,8 +1,17 @@
 import { rtkApi } from 'shared/api/rtkApi';
-import { current } from '@reduxjs/toolkit';
 import { getUserAuthData } from 'entities/User';
 import { StateSchema } from 'app/providers/StoreProvider';
+import { recursiveFind } from 'shared/lib/recursiveFind/recursiveFind';
 import { Todo } from '../types/TodoSchema';
+
+const findTodoById = (arr: Todo[], patch:Todo) => {
+  const index = arr.findIndex((item) => item.id === patch.id);
+  if (index !== -1) arr[index] = { ...patch };
+};
+const deleteTodoById = (arr: Todo[], patch:string) => {
+  const index = arr.findIndex((item) => item.id === patch);
+  if (index !== -1) arr.splice(index, 1);
+};
 
 const todosApi = rtkApi.injectEndpoints({
   endpoints: (build) => ({
@@ -43,9 +52,8 @@ const todosApi = rtkApi.injectEndpoints({
         const userData = getUserAuthData(getState() as StateSchema);
         if (userData) {
           const patchResult = dispatch(
-            todosApi.util.updateQueryData('FetchUserTodos', userData?.id, (draft:Todo[]) => {
-              const index = draft.findIndex((todo) => todo.id === patch.id);
-              draft[index] = { ...patch };
+            todosApi.util.updateQueryData('FetchUserTodos', userData?.id, (draft) => {
+              recursiveFind(draft, findTodoById, 'todos', patch);
             }),
           );
           try {
@@ -62,6 +70,21 @@ const todosApi = rtkApi.injectEndpoints({
         url: `/todos/${id}`,
         method: 'DELETE',
       }),
+      async onQueryStarted(patch, { dispatch, queryFulfilled, getState }) {
+        const userData = getUserAuthData(getState() as StateSchema);
+        if (userData) {
+          const patchResult = dispatch(
+            todosApi.util.updateQueryData('FetchUserTodos', userData?.id, (draft) => {
+              recursiveFind(draft, deleteTodoById, 'todos', patch);
+            }),
+          );
+          try {
+            await queryFulfilled;
+          } catch {
+            patchResult.undo();
+          }
+        }
+      },
       invalidatesTags: () => ['Todo'],
     }),
   }),

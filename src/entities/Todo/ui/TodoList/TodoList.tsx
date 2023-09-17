@@ -7,11 +7,13 @@ import { TodoItem } from '../TodoItem/TodoItem';
 
 interface TodoListProps {
   className?: string;
-  todos?: Todo[];
+  todos: Todo[];
 }
 
 export const TodoList = memo((props : TodoListProps) => {
-  const { className, todos } = props;
+  const {
+    className, todos,
+  } = props;
   return (
     <VStack gap="0" className={classNames(cls.TodoList, {}, [className])}>
       {todos?.map((todo) => todo.id && <TodoItem key={todo.id} todo={todo} />)}

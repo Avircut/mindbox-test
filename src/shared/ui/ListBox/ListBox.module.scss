@@ -4,10 +4,12 @@
 
 .trigger {
   background: none;
-  border: none;
+  border: 1px solid var(--primary-color);
   outline: none;
-  padding: 0;
+  padding: 3px 6px;
   margin: 0;
+  cursor: pointer;
+  width: 100%;
 }
 
 .options {
@@ -52,4 +54,8 @@
 
 .disabled {
   opacity: 0.7;
+}
+
+.maxHeight {
+  overflow-y: auto;
 }
