@@ -1,6 +1,5 @@
 import { $, browser } from '@wdio/globals';
 import Page from './page';
-import { USER_LOCALSTORAGE_KEY } from 'shared/const/localStorage';
 
 /**
  * sub page containing specific selectors and methods for a specific page
@@ -31,7 +30,7 @@ class MainPage extends Page {
 
   async loadData() {
     try {
-      await browser.setLocalStorage(USER_LOCALSTORAGE_KEY,'admin');
+      await browser.setLocalStorage('user', 'admin');
       await this.open();
       await this.Loading.waitForDisplayed({ timeout: 2000 });
       await this.todoitems[0].waitForDisplayed({ timeout: 2000 });
