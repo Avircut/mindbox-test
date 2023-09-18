@@ -18,15 +18,14 @@ export const Light: Story = {
   args: {
   },
   decorators: [
-    StoreDecorator({ authForm: { login: 'admin', password: '123' } }),
-    ThemeDecorator(Theme.DARK),
+    StoreDecorator({ user: { authData: { id: '1', username: 'Avircut' } } }),
   ],
 };
 export const Dark: Story = {
   args: {
   },
   decorators: [
-    StoreDecorator({ authForm: { login: 'admin', password: '123' } }),
+    StoreDecorator({ user: { authData: { id: '1', username: 'Avircut' } } }),
     ThemeDecorator(Theme.DARK),
   ],
 };

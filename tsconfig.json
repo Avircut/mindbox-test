@@ -13,6 +13,7 @@
     "paths": {
       "*": ["./src/*"]
     },
+    "types": ["node","@wdio/globals/types","@wdio/mocha-framework"],
     "strict": true
   },
   "ts-node": {
@@ -23,6 +24,7 @@
   "include":[
     "./src/**/*.ts",
     "./src/**/*.tsx",
-    "./config/**/*.ts"
+    "./config/**/*.ts",
+    "./tests/**/*.page.ts"
   ],
 }

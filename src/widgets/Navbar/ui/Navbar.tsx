@@ -7,6 +7,8 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { HStack } from 'shared/ui/Stack';
+import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
+import { LangSwitcher } from 'widgets/LangSwitcher';
 import cls from './Navbar.module.scss';
 
 export const Navbar = memo(() => {
@@ -19,7 +21,9 @@ export const Navbar = memo(() => {
   if (authData) {
     return (
       <HStack role="heading" className={classNames(cls.navbar)}>
-        <HStack grow justify="end">
+        <HStack gap="16" grow justify="end">
+          <LangSwitcher />
+          <ThemeSwitcher />
           <Dropdown
             direction="bottomLeft"
             className={cls.dropdown}

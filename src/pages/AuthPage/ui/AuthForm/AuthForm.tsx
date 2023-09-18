@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { memo, useCallback } from 'react';
+import React, { memo, useCallback } from 'react';
 import { Input } from 'shared/ui/Input/Input';
 import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
@@ -60,39 +60,52 @@ const AuthForm = memo((props: AuthFormProps) => {
       onSuccess?.();
     }
   }, [dispatch, onSuccess, password, username]);
+  const onKeyDown = useCallback(
+    (e: React.KeyboardEvent) => {
+      if (e.key === 'Enter') onClick();
+    },
+    [onClick],
+  );
   if (isLoading) {
     return (
       <VStack className={cls.AuthForm}>
         <PageLoader />
-
       </VStack>
     );
   }
+
   return (
     <VStack role="form" gap="16" align="stretch" className={cls.AuthForm}>
       <Text title={t('Auth')} size={TextSize.L} />
       <VStack>
         {errors
-        && errors.map((error:ValidateAuthError) => <Text theme={TextTheme.ERROR} text={validateErrorsTranslates[error]} />)}
+          && errors.map((error: ValidateAuthError) => (
+            <Text
+              data-testid="errors"
+              theme={TextTheme.ERROR}
+              text={validateErrorsTranslates[error]}
+            />
+          ))}
       </VStack>
       <VStack gap="8">
         <Input
+          data-testid="login"
           placeholder={t('Login')}
           value={username}
           onChange={onLoginChange}
+          onKeyDown={onKeyDown}
         />
         <Input
+          data-testid="password"
           type="password"
           placeholder={t('Password')}
           value={password}
           onChange={onPasswordChange}
+          onKeyDown={onKeyDown}
         />
       </VStack>
       <VStack align="end" gap="8">
-        <Button
-          className={cls.submitBtn}
-          onClick={onClick}
-        >
+        <Button data-testid="submitBtn" className={cls.submitBtn} onClick={onClick}>
           {t('Log in')}
         </Button>
         <LangSwitcher />

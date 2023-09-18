@@ -17,7 +17,7 @@ export interface AddTodoFormProps {
   onSuccess?: () => void;
 }
 
-const AddTodoForm = memo((props: AddTodoFormProps) => {
+export const AddTodoForm = memo((props: AddTodoFormProps) => {
   const { className, onSuccess } = props;
   const { t } = useTranslation();
   const [title, setTitle] = useState('');
@@ -26,17 +26,22 @@ const AddTodoForm = memo((props: AddTodoFormProps) => {
   const [onAddTodo, { isLoading, error }] = useAddNewTodo();
   const { data: todos } = useFetchUserTodos(user!.id);
   const [validateError, setValidateError] = useState('');
+
   const listboxItems: ListboxItem[] = todos?.length
-    ? todos.map((todo) => ({
-      content: todo.title,
+    ? todos.filter((todo) => !todo.todoId).map((todo) => ({
+      content: `${todo.title} [${todo.id}]`,
       value: todo.id ?? '',
     }))
     : [{ content: t('No todos yet'), value: '-1', disabled: true }];
+
   const onClick = useCallback(
     (e: React.MouseEvent) => {
       if (title !== '') {
         setValidateError('');
-        const parentId = todos?.find((item) => item.title === parent)?.id;
+        // Seems like JSON-server can't handle inner relationships, therefore We can't get child on third level, so [parent-child] only works. [parent-child-child] doesn't =(
+        // That's a bit sad because recursive search already built to handle any level relationship...
+        const id = /\[.+\]$/.exec(parent)![0].replace(/[[\]]+/g, '');
+        const parentId = todos?.find((item) => item.id === id)?.id;
         const todo: Todo = {
           userId: user!.id,
           isCompleted: false,
@@ -61,7 +66,7 @@ const AddTodoForm = memo((props: AddTodoFormProps) => {
   return (
     <VStack role="form" gap="8" align="stretch" className={classNames(cls.form, {}, [className])}>
       <Text title={t('New todo')} />
-      <Input value={title} onChange={setTitle} placeholder={t('Todo Title')} />
+      <Input data-testid="title" id="titleInput" value={title} onChange={setTitle} placeholder={t('Todo Title')} />
       <Listbox
         defaultValue={t('Choose Parent')}
         className={cls.listbox}
@@ -72,7 +77,7 @@ const AddTodoForm = memo((props: AddTodoFormProps) => {
       />
       {validateError && <Text theme={TextTheme.ERROR} text={validateError} />}
       {error && <Text theme={TextTheme.ERROR} text={t('Adding new todo error')} />}
-      <Button onClick={onClick}>
+      <Button id="submitAddBtn" onClick={onClick}>
         {t('Add Todo Btn')}
       </Button>
     </VStack>

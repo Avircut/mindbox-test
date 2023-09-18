@@ -47,7 +47,8 @@
       "id": "11",
       "title": "Получить работу в Mindxbox",
       "userId": "2",
-      "isCompleted": true
+      "isCompleted": true,
+      "todos": []
     },
     {
       "id": "12",
@@ -72,9 +73,23 @@
     {
       "userId": "1",
       "isCompleted": false,
-      "title": "Test",
-      "id": "t93DHQ6",
-      "todos": []
+      "title": "tst",
+      "todoId": "8",
+      "id": "nhNVjy6"
+    },
+    {
+      "userId": "1",
+      "isCompleted": true,
+      "title": "Налить масло",
+      "todoId": "7",
+      "id": "qyR_fIl"
+    },
+    {
+      "userId": "1",
+      "isCompleted": false,
+      "title": "Налить масло",
+      "todoId": "8",
+      "id": "ZR8rR8e"
     }
   ]
 }

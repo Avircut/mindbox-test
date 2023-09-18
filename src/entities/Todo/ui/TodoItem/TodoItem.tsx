@@ -25,7 +25,7 @@ export const TodoItem = memo((props: TodoProps) => {
   const mods: Mods = {
     [cls.completed]: todo.isCompleted,
   };
-  const [updateTodo] = useUpdateTodo();
+  const [updateTodo, { isLoading: isUpdating }] = useUpdateTodo();
   const [removeTodo] = useRemoveTodo();
   const updateTitle = () => updateTodo({ ...todo, title });
   const debouncedUpdate = useDebounce(updateTitle, 500);
@@ -64,16 +64,18 @@ export const TodoItem = memo((props: TodoProps) => {
         <HStack gap="8" grow>
           <Button
             role="checkbox"
+            id="checkBtn"
             className={cls.checkbox}
             theme={ButtonTheme.CLEAR}
             onClick={onActiveChange}
+            disabled={isUpdating}
           >
             {todo.isCompleted && <Icon Svg={doneCheckIcon} />}
           </Button>
           <Input theme="clear" value={title} onChange={onChangeTitle} />
         </HStack>
         <HStack className={cls.icons} align="center">
-          <Button onClick={onDeleteClick} theme={ButtonTheme.CLEAR} className={cls.icon}>
+          <Button id="deleteBtn" onClick={onDeleteClick} theme={ButtonTheme.CLEAR} className={cls.icon}>
             <Icon Svg={deleteIcon} strokeColor="red" />
           </Button>
         </HStack>

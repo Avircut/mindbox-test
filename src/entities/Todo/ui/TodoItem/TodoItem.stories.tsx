@@ -1,10 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator/StoreDecorator';
 import { TodoItem } from './TodoItem';
 
 const meta = {
   title: 'entities/Todo/TodoItem',
   component: TodoItem,
   tags: ['autodocs'],
+  decorators: [StoreDecorator({})],
 } satisfies Meta<typeof TodoItem>;
 
 export default meta;

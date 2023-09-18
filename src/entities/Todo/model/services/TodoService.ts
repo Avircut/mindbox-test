@@ -1,7 +1,7 @@
 import { rtkApi } from 'shared/api/rtkApi';
 import { getUserAuthData } from 'entities/User';
 import { StateSchema } from 'app/providers/StoreProvider';
-import { recursiveFind } from 'shared/lib/recursiveFind/recursiveFind';
+import { recursiveSearch } from 'shared/lib/recursiveSearch/recursiveSearch';
 import { Todo } from '../types/TodoSchema';
 
 const findTodoById = (arr: Todo[], patch:Todo) => {
@@ -53,7 +53,7 @@ const todosApi = rtkApi.injectEndpoints({
         if (userData) {
           const patchResult = dispatch(
             todosApi.util.updateQueryData('FetchUserTodos', userData?.id, (draft) => {
-              recursiveFind(draft, findTodoById, 'todos', patch);
+              recursiveSearch(draft, findTodoById, 'todos', patch);
             }),
           );
           try {
@@ -75,7 +75,7 @@ const todosApi = rtkApi.injectEndpoints({
         if (userData) {
           const patchResult = dispatch(
             todosApi.util.updateQueryData('FetchUserTodos', userData?.id, (draft) => {
-              recursiveFind(draft, deleteTodoById, 'todos', patch);
+              recursiveSearch(draft, deleteTodoById, 'todos', patch);
             }),
           );
           try {

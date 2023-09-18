@@ -58,7 +58,7 @@ const MainPage = memo(() => {
         <TodoHeader />
         <VStack align="stretch" className={cls.wrapper}>
           <TodoList todos={todos?.filter((todo) => !todo.todoId)} />
-          <Button onClick={onShowModal}>{t('Add Todo Btn')}</Button>
+          <Button id="addBtn" onClick={onShowModal}>{t('Add Todo Btn')}</Button>
         </VStack>
         {isAddModalVisible && <AddTodoFormModal isOpen onClose={onCloseModal} />}
       </VStack>

@@ -1,5 +1,6 @@
 import path from 'path';
 import webpack, { DefinePlugin, RuleSetRule } from 'webpack';
+import CopyPlugin from 'copy-webpack-plugin';
 import { buildSvgLoader } from '../build/loaders/buildSvgLoader';
 import { BuildPaths } from '../build/types/config';
 import { buildCssLoader } from '../build/loaders/buildCssLoader';
@@ -30,6 +31,11 @@ export default ({ config }: {config:webpack.Configuration}) => {
     __IS_DEV__: JSON.stringify(true),
     __API__: JSON.stringify(''),
     __PROJECT__: JSON.stringify('storybook'),
+  }));
+  config!.plugins!.push(new CopyPlugin({
+    patterns: [
+      { from: 'public', to: '' },
+    ],
   }));
   return config;
 };
