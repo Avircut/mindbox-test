@@ -54,6 +54,7 @@ export const AddTodoForm = memo((props: AddTodoFormProps) => {
       };
       onAddTodo?.(todo);
       setTitle('');
+      setParent('');
       onSuccess?.();
     } else {
       setValidateError(t('Please enter title'));
