@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { memo, useCallback, useState } from 'react';
+import React, { memo, useCallback, useState } from 'react';
 import { VStack } from 'shared/ui/Stack';
 import { Input } from 'shared/ui/Input/Input';
 import { Button } from 'shared/ui/Button/Button';
@@ -28,38 +28,46 @@ export const AddTodoForm = memo((props: AddTodoFormProps) => {
   const [validateError, setValidateError] = useState('');
 
   const listboxItems: ListboxItem[] = todos?.length
-    ? todos.filter((todo) => !todo.todoId).map((todo) => ({
-      content: `${todo.title} [${todo.id}]`,
-      value: todo.id ?? '',
-    }))
+    ? todos
+      .filter((todo) => !todo.todoId)
+      .map((todo) => ({
+        content: `${todo.title} [${todo.id}]`,
+        value: todo.id ?? '',
+      }))
     : [{ content: t('No todos yet'), value: '-1', disabled: true }];
+  const onClick = useCallback(() => {
+    if (title !== '') {
+      setValidateError('');
+      // Seems like JSON-server can't handle inner relationships, therefore We can't get child on third level, so [parent-child] only works. [parent-child-child] doesn't =(
+      // That's a bit sad because recursive search already built to handle any level relationship...
+      let parentId = '';
+      if (parent) {
+        const id = /\[.+\]$/.exec(parent)![0].replace(/[[\]]+/g, '');
+        parentId = todos?.find((item) => item.id === id)?.id || '';
+      }
 
-  const onClick = useCallback(
-    (e: React.MouseEvent) => {
-      if (title !== '') {
-        setValidateError('');
-        // Seems like JSON-server can't handle inner relationships, therefore We can't get child on third level, so [parent-child] only works. [parent-child-child] doesn't =(
-        // That's a bit sad because recursive search already built to handle any level relationship...
-        let parentId = '';
-        if (parent) {
-          const id = /\[.+\]$/.exec(parent)![0].replace(/[[\]]+/g, '');
-          parentId = todos?.find((item) => item.id === id)?.id || '';
-        }
-
-        const todo: Todo = {
-          userId: user!.id,
-          isCompleted: false,
-          title,
-          todoId: parentId,
-        };
-        onAddTodo?.(todo);
-        onSuccess?.();
-      } else {
-        setValidateError(t('Please enter title'));
+      const todo: Todo = {
+        userId: user!.id,
+        isCompleted: false,
+        title,
+        todoId: parentId,
+      };
+      onAddTodo?.(todo);
+      setTitle('');
+      onSuccess?.();
+    } else {
+      setValidateError(t('Please enter title'));
+    }
+  }, [onAddTodo, onSuccess, parent, t, title, todos, user]);
+  const onKeyDown = useCallback(
+    (e: React.KeyboardEvent) => {
+      if (e.key === 'Enter') {
+        onClick();
       }
     },
-    [onAddTodo, onSuccess, parent, t, title, todos, user],
+    [onClick],
   );
+
   if (isLoading) {
     return (
       <VStack className={classNames(cls.form, {}, [className])}>
@@ -68,9 +76,21 @@ export const AddTodoForm = memo((props: AddTodoFormProps) => {
     );
   }
   return (
-    <VStack role="form" gap="8" align="stretch" className={classNames(cls.form, {}, [className])}>
+    <VStack
+      role="form"
+      gap="8"
+      align="stretch"
+      className={classNames(cls.form, {}, [className])}
+    >
       <Text title={t('New todo')} />
-      <Input data-testid="title" id="titleInput" value={title} onChange={setTitle} placeholder={t('Todo Title')} />
+      <Input
+        data-testid="title"
+        id="titleInput"
+        value={title}
+        onChange={setTitle}
+        onKeyDown={onKeyDown}
+        placeholder={t('Todo Title')}
+      />
       <Listbox
         defaultValue={t('Choose Parent')}
         className={cls.listbox}
@@ -80,7 +100,9 @@ export const AddTodoForm = memo((props: AddTodoFormProps) => {
         items={listboxItems}
       />
       {validateError && <Text theme={TextTheme.ERROR} text={validateError} />}
-      {error && <Text theme={TextTheme.ERROR} text={t('Adding new todo error')} />}
+      {error && (
+        <Text theme={TextTheme.ERROR} text={t('Adding new todo error')} />
+      )}
       <Button id="submitAddBtn" onClick={onClick}>
         {t('Add Todo Btn')}
       </Button>
