@@ -17,7 +17,7 @@ jobs:
         with:
           node-version: ${{matrix.node-version}}
       - name: install modules
-        run: npm install --force
+        run: npm install
       - name: build project
         run: npm run build:prod
       - name: Linting
@@ -28,7 +28,7 @@ jobs:
         run: npm run test:unit
       - name: Build storybook
         run: npm run storybook:build
-      # - name: Screenshot tests
-      #   run: npm run test:ui:ci
-      # - name: Generate HTML Loki Report
-      #   run: npm run test:ui:report
+      - name: Screenshot tests
+        run: npm run test:ui:ci
+      - name: Generate HTML Loki Report
+        run: npm run test:ui:report

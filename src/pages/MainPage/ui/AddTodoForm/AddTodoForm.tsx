@@ -40,8 +40,12 @@ export const AddTodoForm = memo((props: AddTodoFormProps) => {
         setValidateError('');
         // Seems like JSON-server can't handle inner relationships, therefore We can't get child on third level, so [parent-child] only works. [parent-child-child] doesn't =(
         // That's a bit sad because recursive search already built to handle any level relationship...
-        const id = /\[.+\]$/.exec(parent)![0].replace(/[[\]]+/g, '');
-        const parentId = todos?.find((item) => item.id === id)?.id;
+        let parentId = '';
+        if (parent) {
+          const id = /\[.+\]$/.exec(parent)![0].replace(/[[\]]+/g, '');
+          parentId = todos?.find((item) => item.id === id)?.id || '';
+        }
+
         const todo: Todo = {
           userId: user!.id,
           isCompleted: false,

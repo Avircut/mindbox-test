@@ -53,6 +53,7 @@ export const Flex = (props: FlexProps) => {
     gap = '4',
     max = false,
     grow = false,
+    id,
   } = props;
   const mods:Mods = {
     [cls.max]: max,
@@ -67,6 +68,7 @@ export const Flex = (props: FlexProps) => {
         directionClasses[direction],
         gapClasses[gap],
       ])}
+      id={id}
     >
       {children}
     </div>

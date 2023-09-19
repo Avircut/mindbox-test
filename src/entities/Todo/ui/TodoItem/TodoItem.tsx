@@ -55,6 +55,7 @@ export const TodoItem = memo((props: TodoProps) => {
   if (!todo) return null;
   return (
     <VStack
+      id="todoItem"
       align="stretch"
       gap="0"
       max
@@ -72,7 +73,7 @@ export const TodoItem = memo((props: TodoProps) => {
           >
             {todo.isCompleted && <Icon Svg={doneCheckIcon} />}
           </Button>
-          <Input theme="clear" value={title} onChange={onChangeTitle} />
+          <Input id="todoTitle" theme="clear" value={title} onChange={onChangeTitle} />
         </HStack>
         <HStack className={cls.icons} align="center">
           <Button id="deleteBtn" onClick={onDeleteClick} theme={ButtonTheme.CLEAR} className={cls.icon}>

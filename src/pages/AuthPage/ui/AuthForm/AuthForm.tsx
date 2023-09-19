@@ -90,6 +90,7 @@ const AuthForm = memo((props: AuthFormProps) => {
       <VStack gap="8">
         <Input
           data-testid="login"
+          id="loginInput"
           placeholder={t('Login')}
           value={username}
           onChange={onLoginChange}
@@ -97,6 +98,7 @@ const AuthForm = memo((props: AuthFormProps) => {
         />
         <Input
           data-testid="password"
+          id="passwordInput"
           type="password"
           placeholder={t('Password')}
           value={password}
@@ -105,7 +107,7 @@ const AuthForm = memo((props: AuthFormProps) => {
         />
       </VStack>
       <VStack align="end" gap="8">
-        <Button data-testid="submitBtn" className={cls.submitBtn} onClick={onClick}>
+        <Button id="submitBtn" data-testid="submitBtn" className={cls.submitBtn} onClick={onClick}>
           {t('Log in')}
         </Button>
         <LangSwitcher />
