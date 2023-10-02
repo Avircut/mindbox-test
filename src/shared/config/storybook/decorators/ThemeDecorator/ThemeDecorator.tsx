@@ -1,12 +1,9 @@
 import { StoryFn } from '@storybook/react';
-import { Theme, ThemeProvider } from 'app/providers/ThemeProvider';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { Theme, ThemeProvider } from '@mui/material';
 
 export const ThemeDecorator = (theme: Theme) => (Story: StoryFn) => (
-  <ThemeProvider initialTheme={theme}>
-    <div className={classNames('app', {}, [theme])}>
-      <Story />
-    </div>
+  <ThemeProvider theme={theme}>
+    <Story />
   </ThemeProvider>
 
 );

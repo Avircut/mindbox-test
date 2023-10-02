@@ -1,7 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
 import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator/StoreDecorator';
 import { rest } from 'msw';
 import MainPage from './MainPage';
@@ -19,15 +17,14 @@ export const Light: Story = {
   args: {
   },
   decorators: [
-    StoreDecorator({ user: { authData: { id: '1', username: 'Avircut' } } }),
+    StoreDecorator({ }),
   ],
 };
 export const Dark: Story = {
   args: {
   },
   decorators: [
-    StoreDecorator({ user: { authData: { id: '1', username: 'Avircut' } } }),
-    ThemeDecorator(Theme.DARK),
+    StoreDecorator({ }),
   ],
 };
 export const Loading: Story = {
@@ -43,7 +40,7 @@ export const Loading: Story = {
     },
   },
   decorators: [
-    StoreDecorator({ user: { authData: { id: '1', username: 'Avircut' } } }),
+    StoreDecorator({ }),
   ],
 };
 
@@ -60,6 +57,6 @@ export const Error: Story = {
     },
   },
   decorators: [
-    StoreDecorator({ user: { authData: { id: '1', username: 'Avircut' } } }),
+    StoreDecorator({ }),
   ],
 };

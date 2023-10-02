@@ -14,7 +14,11 @@
       "*": ["./src/*"]
     },
     "types": ["node","@wdio/globals/types","@wdio/mocha-framework"],
-    "strict": true
+    "strict": true,
+    // MUI
+    "lib": ["ES6", "DOM"],
+    "noImplicitThis": true,
+    "strictNullChecks": true,
   },
   "ts-node": {
     "compilerOptions": {

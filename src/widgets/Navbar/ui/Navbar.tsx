@@ -1,44 +1,44 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { memo, useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
-import { getUserAuthData, userActions } from 'entities/User';
-import { useAppSelector } from 'shared/lib/hooks/useAppSelector/useAppSelector';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { HStack } from 'shared/ui/Stack';
-import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
-import { LangSwitcher } from 'widgets/LangSwitcher';
+import { memo, useCallback, useState } from 'react';
+import {
+  Stack, IconButton, Tabs, Tab, AppBar, Divider,
+} from '@mui/material';
+import AppsIcon from '@mui/icons-material/Apps';
+import ReplyIcon from '@mui/icons-material/Reply';
 import cls from './Navbar.module.scss';
 
-export const Navbar = memo(() => {
-  const { t } = useTranslation();
-  const authData = useAppSelector(getUserAuthData);
-  const dispatch = useAppDispatch();
-  const onLogout = useCallback(() => {
-    dispatch(userActions.logout());
-  }, [dispatch]);
-  if (authData) {
-    return (
-      <HStack role="heading" className={classNames(cls.navbar)}>
-        <HStack gap="16" grow justify="end">
-          <LangSwitcher />
-          <ThemeSwitcher />
-          <Dropdown
-            direction="bottomLeft"
-            className={cls.dropdown}
-            trigger={<Avatar size={30} src={authData.avatar} />}
-            items={[
-              {
-                content: t('Log out'),
-                onClick: onLogout,
-              },
-            ]}
-          />
-        </HStack>
+function a11yProps(index: number) {
+  return {
+    id: `navbartab-${index}`,
+    'aria-controls': `navbarpanel-${index}`,
+  };
+}
 
-      </HStack>
-    );
-  }
-  return null;
+export const Navbar = memo(() => {
+  const [tab, setTab] = useState(0);
+  const changeTab = useCallback((event: React.SyntheticEvent, newValue:number) => {
+    setTab(newValue);
+  }, []);
+  return (
+    <AppBar position="static">
+      <Stack spacing={7} direction="row">
+        <Stack direction="row" alignItems="center">
+          <IconButton className={cls.icon}>
+            <AppsIcon />
+          </IconButton>
+          <IconButton className={cls.icon}>
+            <ReplyIcon />
+          </IconButton>
+        </Stack>
+        <Stack direction="row">
+          <Tabs value={tab} onChange={changeTab} aria-label="main application tabs">
+            <Tab sx={{ textTransform: 'none' }} label="Просмотр" {...a11yProps(0)} />
+            <Tab sx={{ textTransform: 'none' }} label="Управление" {...a11yProps(1)} />
+          </Tabs>
+        </Stack>
+      </Stack>
+      <Divider />
+    </AppBar>
+
+  );
 });

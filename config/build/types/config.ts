@@ -5,13 +5,12 @@ export interface BuildPaths {
   build: string;
   html: string;
   src: string;
-  locales: string;
-  buildLocales?: string;
 }
 export interface BuildEnv {
   mode: BuildMode;
   port:number;
   apiUrl: string;
+  eid: number;
 }
 export interface BuildOptions {
   mode: BuildMode;

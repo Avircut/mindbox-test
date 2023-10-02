@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
 import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator/StoreDecorator';
 import { NotFoundPage } from './NotFoundPage';
 
@@ -26,6 +25,5 @@ export const Dark: Story = {
   },
   decorators: [
     StoreDecorator({}),
-    ThemeDecorator(Theme.DARK),
   ],
 };

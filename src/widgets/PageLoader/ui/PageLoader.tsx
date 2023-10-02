@@ -1,13 +1,17 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Loader } from 'shared/ui/Loader/Loader';
+import { CircularProgress, Backdrop } from '@mui/material';
 import cls from './PageLoader.module.scss';
 
 interface PageLoaderProps {
   className?: string;
 }
 
-export const PageLoader = ({ className } : PageLoaderProps) => (
-  <div data-testid="pageLoader" className={classNames(cls.PageLoader, {}, [className])}>
-    <Loader />
-  </div>
-);
+export const PageLoader = ({ className } : PageLoaderProps) => {
+  return (
+    <div data-testid="pageLoader" className={classNames(cls.PageLoader, {}, [className])}>
+      <Backdrop open>
+        <CircularProgress />
+      </Backdrop>
+    </div>
+  );
+};

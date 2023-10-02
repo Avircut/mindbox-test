@@ -8,12 +8,11 @@ export default (env: BuildEnv) => {
     build: path.resolve(__dirname, 'dist'),
     html: path.resolve(__dirname, 'public', 'index.html'),
     src: path.resolve(__dirname, 'src'),
-    locales: path.resolve(__dirname, 'public', 'locales'),
-    buildLocales: path.resolve(__dirname, 'dist', 'locales'),
   };
   const mode = env.mode || 'development';
   const isDev = mode === 'development';
-  const apiUrl = env.apiUrl || 'http://localhost:8000';
+  const API_EID = env.eid || 63298;
+  const apiUrl = env.apiUrl || `http://185.244.172.108:8081/v1/outlay-rows/entity/${API_EID}/row/`;
   const PORT = env.port || 3000;
   const config = buildWebpackConfig({
     mode,

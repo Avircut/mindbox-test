@@ -3,5 +3,11 @@
     ["@babel/preset-env",{"loose":true}],
     "@babel/preset-typescript",
     ["@babel/preset-react", {"runtime":"automatic"}]
+  ],
+  "plugins": [
+    [
+      "babel-plugin-direct-import",
+      { "modules": ["@mui/material", "@mui/icons-material"] },
+    ],
   ]
 }

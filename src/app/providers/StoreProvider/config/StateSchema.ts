@@ -7,15 +7,13 @@ import {
 } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
 import { rtkApi } from 'shared/api/rtkApi';
-import { AuthPageSchema } from 'pages/AuthPage';
-import { UserSchema } from 'entities/User';
+import { AddRowSchema } from 'features/addRow';
 import { AppDispatch } from './store';
 
 export interface StateSchema {
   [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
-  user: UserSchema;
   // Async
-  authForm?: AuthPageSchema;
+  addRow?: AddRowSchema;
 
 }
 

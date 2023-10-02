@@ -1,18 +1,19 @@
 import { render } from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-import { ThemeProvider } from 'app/providers/ThemeProvider';
 import App from 'app/App';
 import 'app/styles/index.scss';
-
-import 'shared/config/i18n/i18n';
 import { ErrorBoundary } from 'app/providers/ErrorBoundary';
 import { StoreProvider } from 'app/providers/StoreProvider';
+import { ThemeProvider } from '@mui/material/styles';
+import { darkTheme } from 'app/providers/theme/theme';
+import { CssBaseline } from '@mui/material';
 
 render(
   <BrowserRouter>
     <StoreProvider>
       <ErrorBoundary>
-        <ThemeProvider>
+        <ThemeProvider theme={darkTheme}>
+          <CssBaseline />
           <App />
         </ThemeProvider>
       </ErrorBoundary>

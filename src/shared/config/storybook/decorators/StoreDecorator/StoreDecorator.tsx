@@ -1,10 +1,10 @@
 import { StoryFn } from '@storybook/react';
 import { StateSchema, StoreProvider } from 'app/providers/StoreProvider';
-import { AuthPageReducer } from 'pages/AuthPage/model/slices/AuthPageSlice';
+import { addRowReducer } from 'features/addRow/model/slices/addRowSlice';
 import { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
 const defaultAsyncReducers: ReducersList = {
-  authForm: AuthPageReducer,
+  addRow: addRowReducer,
 };
 
 export const StoreDecorator = (

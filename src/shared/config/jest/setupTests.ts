@@ -13,28 +13,16 @@ global.Request = Request;
 global.Response = Response;
 
 export const handlers = [
-  rest.get(`${__API__}/todos`, (_req, res, ctx) => {
+  rest.get(`${__API__}/list`, (_req, res, ctx) => {
     return res(ctx.json(mockData));
   }),
-  rest.post(`${__API__}/login`, (_req, res, ctx) => {
-    return res(
-      ctx.json({
-        id: '1',
-        username: 'admin',
-        password: '123',
-        avatar:
-          // eslint-disable-next-line max-len
-          'https://sun27-1.userapi.com/s/v1/ig2/wi5o_w0R9_NC5nNp_7LxI8cZlUtm64kQ4PL5cpXrdw-7YFjF2BKnjiNV16rJiGBnvEId9NiNgieePJPOVzXMARIT.jpg?size=144x144&quality=95&crop=330,278,144,144&ava=1',
-      }),
-    );
-  }),
-  rest.post(`${__API__}/todos`, (_req, res, ctx) => {
+  rest.post(`${__API__}/create`, (_req, res, ctx) => {
     return res(ctx.json(_req.bodyUsed));
   }),
-  rest.put(`${__API__}/todos/*`, (_req, res, ctx) => {
+  rest.put(`${__API__}/*/update`, (_req, res, ctx) => {
     return res(ctx.json(_req.bodyUsed));
   }),
-  rest.delete(`${__API__}/todos/*`, (_req, res, ctx) => {
+  rest.delete(`${__API__}/*/delete`, (_req, res, ctx) => {
     return res(ctx.json(_req.bodyUsed));
   }),
 ];

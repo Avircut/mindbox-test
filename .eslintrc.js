@@ -7,7 +7,6 @@ module.exports = {
   extends: [
     'plugin:react/recommended',
     'airbnb',
-    'plugin:i18next/recommended',
     'plugin:storybook/recommended',
   ],
   parser: '@typescript-eslint/parser',
@@ -21,7 +20,6 @@ module.exports = {
   plugins: [
     'react',
     '@typescript-eslint',
-    'i18next',
     'react-hooks',
     'avircut-plugin',
   ],
@@ -44,26 +42,6 @@ module.exports = {
     'import/no-extraneous-dependencies': 'off',
     'no-underscore-dangle': 'off',
     'class-methods-use-this': 'off',
-    'i18next/no-literal-string': [
-      'error',
-      {
-        markupOnly: true,
-        ignoreAttribute: [
-          'data-testid',
-          'to',
-          'target',
-          'justify',
-          'align',
-          'direction',
-          'gap',
-          'role',
-          'as',
-          'strokeColor',
-          'fillColor',
-          'theme',
-        ],
-      },
-    ],
     'max-len': [
       'error',
       {
@@ -80,6 +58,11 @@ module.exports = {
     'react/no-array-index-key': 'off',
     'arrow-body-style': 'off',
     'avircut-plugin/path-checker': 'error',
+    'no-restricted-imports': [
+      'error', {
+        patterns: ['@mui/*/*/*'],
+      },
+    ],
   },
   globals: {
     __IS_DEV__: true,
@@ -90,8 +73,6 @@ module.exports = {
     {
       files: ['**/src/**/*.{test,stories}.{ts,tsx}'],
       rules: {
-        'i18next/no-literal-string': ['off'],
-        'i18n-ally-hard-string': ['off'],
         'max-len': ['off'],
       },
     },
