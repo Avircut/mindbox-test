@@ -1,5 +1,4 @@
 import { Drawer, IconButton } from '@mui/material';
-import { useState } from 'react';
 import { useClosestMedia } from 'shared/lib/hooks/useMediaQuery/useMediaQuery';
 import CloseIcon from '@mui/icons-material/Close';
 
